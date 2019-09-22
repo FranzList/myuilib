@@ -1,4 +1,4 @@
-# myuilib
+# myuilib2
 
 > A Vue.js project
 

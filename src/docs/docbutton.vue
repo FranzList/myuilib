@@ -6,7 +6,7 @@
      <h2>引入</h2>
      <div  class="import-code"></div>
      <h2>Example</h2>
-     <zbutton icon-name="loading" :isLoading="true" type="info">234</zbutton>
+     <zbutton type="info" icon-name="loading" :isLoading="true" >123</zbutton>
      <pre>
        <code>
          <span>
@@ -32,6 +32,6 @@ export default {
 }
 
 </script>
-<style>
+<style scoped lang="scss">
   
 </style>

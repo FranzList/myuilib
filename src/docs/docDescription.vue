@@ -10,8 +10,7 @@
 
 <script>
 
-import HelloWorld from '@/components/HelloWorld'
-import zicon from '@/components/zicon'
+import zicon from '../components/zicon'
 export default {
  created() {
      
@@ -22,12 +21,12 @@ export default {
      }
  },
   components:{
-      HelloWorld,zicon
+     zicon
   }
 }
 
 </script>
-<style scoped  lang="stylus" rel="stylesheet/stylus">
+<style scoped lang="scss" >
 
      
 </style>
