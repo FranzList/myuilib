@@ -1,0 +1,556 @@
+
+$--more-opacity: 0.9;
+$--middle-opacity: 0.8;
+$--less-opacity: 0.75;
+$--half-opacity: 0.5;
+
+
+$--pressed-scale: scale(0.9) !default;
+
+
+$--font-size-mini: 0.8em;
+
+
+$--all-transition: all .3s cubic-bezier(.645,.045,.355,1) !default;
+$--fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$--fade-linear-transition: opacity 200ms linear !default;
+$--md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$--border-transition-base: border-color .2s cubic-bezier(.645,.045,.355,1) !default;
+$--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
+
+/* Colors
+-------------------------- */
+$--color-white: #fff !default;
+$--color-black: #000 !default;
+$--color-opacity-primary: rgba(59, 156, 255, 0.8) !default;
+$--color-primary: #3B9CE1 !default;
+$--color-primary-bright: #01FFFF !default;
+$--color-primary-light-1: mix($--color-white, $--color-primary, 10%) !default; /* 53a8ff */
+$--color-primary-light-2: mix($--color-white, $--color-primary, 20%) !default; /* 66b1ff */
+$--color-primary-light-3: mix($--color-white, $--color-primary, 30%) !default; /* 79bbff */
+$--color-primary-light-4: mix($--color-white, $--color-primary, 40%) !default; /* 8cc5ff */
+$--color-primary-light-5: mix($--color-white, $--color-primary, 50%) !default; /* a0cfff */
+$--color-primary-light-6: mix($--color-white, $--color-primary, 60%) !default; /* b3d8ff */
+$--color-primary-light-7: mix($--color-white, $--color-primary, 70%) !default; /* c6e2ff */
+$--color-primary-light-8: mix($--color-white, $--color-primary, 80%) !default; /* d9ecff */
+$--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default; /* ecf5ff */
+
+$--color-success: #33A03D !default;
+$--color-opacity-success: rgba(51, 160, 60, 0.8) !default;
+$--color-warning: #FFC429 !default;
+$--color-opacity-warning: rgba(255, 196, 41, 0.8) !default;
+$--color-danger: #DE4561 !default;
+$--color-opacity-danger: rgba(222, 69, 97, 0.8) !default;
+$--color-info: #909399 !default;
+$--color-opacity-info: rgba(144, 147, 153, 0.8) !default;
+$--color-bg-shallow: #565F76 !default;
+$--color-bg: #464F6A !default;
+$--color-bg-dark: #2B3753 !default;
+$--color-opacity-bg-shallow: rgba(86, 95, 118, 0.8) !default;
+$--color-opacity-bg: rgba(70, 79, 106, 0.8) !default;
+$--color-opacity-bg-dark: rgba(43, 55, 83, 0.8) !default;
+
+$--color-success-dark: darken($--color-success, 15%) !default;
+$--color-warning-dark: darken($--color-warning, 15%) !default;
+$--color-danger-dark: darken($--color-danger, 15%) !default;
+$--color-info-dark: darken($--color-info, 15%) !default;
+
+$--color-success-light: mix($--color-white, $--color-success, 80%) !default;
+$--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
+$--color-danger-light: mix($--color-white, $--color-danger, 80%) !default;
+$--color-info-light: mix($--color-white, $--color-info, 80%) !default;
+
+$--color-success-lighter: mix($--color-white, $--color-success, 90%) !default;
+$--color-warning-lighter: mix($--color-white, $--color-warning, 90%) !default;
+$--color-danger-lighter: mix($--color-white, $--color-danger, 90%) !default;
+$--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
+
+$--color-text-primary: #303133 !default;
+$--color-text-regular: #606266 !default;
+$--color-text-secondary: #909399 !default;
+$--color-text-placeholder: #c0c4cc !default;
+$--color-text-shallow: #FFF6FC !default;
+$--color-text-dark: #C9D4E3 !default;
+
+/* Link
+-------------------------- */
+$--link-color: $--color-primary-light-2 !default;
+$--link-hover-color: $--color-primary !default;
+
+/* Background
+-------------------------- */
+$--background-color-base: #f5f7fa !default;
+
+/* Height
+-------------------------- */
+$--height-base: 32px !default;
+$--height-mini: 24px !default;
+
+/* Border
+-------------------------- */
+$--border-width-base: 1px !default;
+$--border-style-base: solid !default;
+$--border-color-base: #dcdfe6 !default;
+$--border-color-light: #e4e7ed !default;
+$--border-color-lighter: #ebeef5 !default;
+$--border-color-extra-light: #f2f6fc !default;
+$--border-color-hover: $--color-text-placeholder !default;
+$--border-base: $--border-width-base $--border-style-base $--border-color-base !default;
+$--border-radius-base: 4px !default;
+$--border-radius-small: 2px !default;
+$--border-radius-circle: 100% !default;
+
+/* Box-shadow
+-------------------------- */
+$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !default;
+$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12) !default;
+$--box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+
+/* Fill
+-------------------------- */
+$--fill-base: $--color-white !default;
+
+/* Font
+-------------------------- */
+$--font-path: 'fonts' !default;
+$--font-size-base: 1em !default;
+$--font-size-small: .9em !default;
+$--font-size-large: 1.1em !default;
+$--font-color-disabled-base: #bbb !default;
+$--font-weight-primary: 500 !default;
+$--font-line-height-primary: 24px !default;
+
+/* Size
+-------------------------- */
+$--size-base: 14px !default;
+
+/* z-index
+-------------------------- */
+$--index-normal: 1 !default;
+$--index-top: 1000 !default;
+$--index-popper: 2000 !default;
+
+/* Disable base
+-------------------------- */
+$--disabled-fill-base: $--background-color-base !default;
+$--disabled-color-base: $--color-text-placeholder !default;
+$--disabled-border-base: $--border-color-light !default;
+
+/* Icon
+-------------------------- */
+$--icon-color: #2E3852 !default;
+$--icon-color-base: $--color-info !default;
+
+/* Radio
+-------------------------- */
+$--radio-input-fill: $--color-white !default;
+$--radio-checked-input-fill: $--color-bg !default;
+$--radio-input-height: 16px !default;
+$--radio-input-width: 16px !default;
+$--radio-input-border-radius: $--border-radius-circle !default;
+$--radio-input-border: 1px solid $--color-bg !default;
+$--radio-color: $--color-bg !default;
+$--radio-input-border-color-hover: $--color-primary !default;
+
+/* Checkbox
+-------------------------- */
+$--checkbox-input-fill: $--color-white !default;
+$--checkbox-checked-input-fill: $--color-bg !default;
+$--checkbox-input-height: 1em !default;
+$--checkbox-input-width: 1em !default;
+$--checkbox-input-border-radius: $--border-radius-small !default;
+$--checkbox-input-border: 1px solid $--color-bg !default;
+$--checkbox-color: $--color-bg !default;
+$--checkbox-input-border-color-hover: $--color-primary !default;
+
+/* Alert
+-------------------------- */
+$--alert-padding: 8px 6px !default;
+$--alert-border-radius: $--border-radius-base !default;
+$--alert-title-font-size: $--font-size-large !default;
+$--alert-message-font-size: .8em !default;
+$--alert-message-color: $--color-text-placeholder !default;
+$--alert-cancel-button-font-size: $--font-size-mini !default;
+$--alert-cancel-button-height: $--height-mini !default;
+
+$--alert-success-color: $--color-success!default;
+$--alert-info-color: $--color-info!default;
+$--alert-warning-color: $--color-warning!default;
+$--alert-danger-color: $--color-danger!default;
+
+/* Message Box
+-------------------------- */
+$--msgbox-width: 420px !default;
+$--msgbox-border-radius: 4px !default;
+$--msgbox-font-size: $--font-size-large !default;
+$--msgbox-content-font-size: $--font-size-base !default;
+$--msgbox-content-color: $--color-text-regular !default;
+$--msgbox-error-font-size: 12px !default;
+$--msgbox-padding-primary: 15px !default;
+
+$--msgbox-success-color: $--color-success !default;
+$--msgbox-info-color: $--color-info !default;
+$--msgbox-warning-color: $--color-warning !default;
+$--msgbox-danger-color: $--color-danger !default;
+
+/* Message
+-------------------------- */
+$--message-shadow: $--box-shadow-base !default;
+$--message-min-width: 380px !default;
+$--message-background-color: #edf2fc !default;
+$--message-padding: 15px 15px 15px 20px !default;
+$--message-content-color: $--color-text-regular !default;
+$--message-close-color: $--color-text-placeholder !default;
+$--message-close-size: 16px !default;
+$--message-close-hover-color: $--color-text-secondary !default;
+
+$--message-success-color: $--color-success !default;
+$--message-info-color: $--color-info !default;
+$--message-warning-color: $--color-warning !default;
+$--message-danger-color: $--color-danger !default;
+
+/* Notification
+-------------------------- */
+$--notification-width: 330px !default;
+$--notification-padding: 14px 26px 14px 13px !default;
+$--notification-radius: 8px !default;
+$--notification-shadow: $--box-shadow-light !default;
+$--notification-border-color: $--border-color-lighter !default;
+$--notification-icon-size: 24px !default;
+$--notification-close-font-size: $--message-close-size !default;
+$--notification-group-margin: 13px !default;
+$--notification-font-size: $--font-size-base !default;
+$--notification-color: $--color-text-regular !default;
+$--notification-title-font-size: 16px !default;
+$--notification-title-color: $--color-text-primary !default;
+
+$--notification-close-color: $--color-text-secondary !default;
+$--notification-close-hover-color: $--color-text-regular !default;
+
+$--notification-success-color: $--color-success !default;
+$--notification-info-color: $--color-info !default;
+$--notification-warning-color: $--color-warning !default;
+$--notification-danger-color: $--color-danger !default;
+
+/* Input
+-------------------------- */
+$--input-padding-horizontal: 15px !default;
+$--input-height: $--height-base !default;
+$--input-border-color: $--border-color-base !default;
+$--input-border-radius: $--border-radius-base !default;
+$--input-border-color-hover: $--border-color-hover !default;
+
+$--input-disabled-fill: rgba(255, 255, 255, 0.6) !default;
+/* Cascader
+-------------------------- */
+$--cascader-menu-fill: $--color-bg-dark !default;
+$--cascader-menu-radius: $--border-radius-small !default;
+$--cascader-menu-color: $--color-text-dark !default;
+$--cascader-menu-option-fill-active: $--color-primary !default;
+$--cascader-menu-option-color-hover: $--color-white !default;
+$--cascader-menu-option-fill-hover: $--color-primary !default;
+$--cascader-menu-shadow: 0 1px 4px $--color-bg-dark !default;
+
+/* Group
+-------------------------- */
+$--group-option-flex: 0 0 (1/5) * 100% !default;
+$--group-option-offset-bottom: 12px !default;
+$--group-option-fill-hover: rgba($--color-black, 0.06) !default;
+$--group-title-color: $--color-black !default;
+$--group-title-font-size: $--font-size-base !default;
+$--group-title-width: 66px !default;
+
+/* Tab
+-------------------------- */
+$--tab-height: 48px !default;
+$--tab-font-size: $--font-size-base !default;
+$--tab-header-color-active: $--color-white !default;
+$--tab-header-color-hover: $--color-white !default;
+$--tab-header-color: $--color-primary !default;
+$--tab-header-fill-active: $--color-primary !default;
+$--tab-header-fill-hover: $--color-primary !default;
+$--tab-bg: $--color-opacity-bg-dark!default;
+/* Button
+-------------------------- */
+$--button-font-size: 14px !default;
+$--button-border-radius: $--border-radius-small !default;
+$--button-padding: 4px 12px !default;
+$--button-default-fill: $--color-primary !default;
+
+$--button-primary-fill: $--color-opacity-primary !default;
+$--button-success-fill: $--color-opacity-success !default;
+$--button-warning-fill: $--color-opacity-warning !default;
+$--button-danger-fill: $--color-opacity-danger !default;
+$--button-info-fill: $--color-opacity-info !default;
+
+$--button-color: $--color-white !default;
+$--button-icon-color: $--color-white !default;
+
+
+/* Switch
+-------------------------- */
+$--switch-background-color: $--color-opacity-primary !default;
+$--switch-font-color: $--color-white !default;
+$--switch-height: $--input-height !default;
+$--switch-hover-background: $--color-primary !default;
+$--switch-hover-border-color: $--color-white !default;
+
+/* Dialog
+-------------------------- */
+$--dialog-background-color: $--color-primary-light-4 !default;
+$--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !default;
+$--dialog-close-hover-color: $--color-primary !default;
+$--dialog-title-font-size: $--font-size-large !default;
+$--dialog-font-size: 14px !default;
+$--dialog-line-height: $--font-line-height-primary !default;
+$--dialog-padding-primary: 20px !default;
+
+/* Table
+-------------------------- */
+$--table-text-color: $--color-white !default;
+$--table-header-color: $--color-white !default;
+$--table-row-hover-background: $--color-bg-dark !default;
+$--table-row-background: $--color-opacity-bg-dark !default;
+$--table-strip-row-hover-background: $--color-bg-shallow !default;
+$--table-strip-row-background: $--color-opacity-bg-shallow !default;
+$--table-header-background: $--color-opacity-primary !default;
+$--table-header-hover-background: $--color-primary !default;
+
+/* Pager
+-------------------------- */
+$--pager-border-radius: $--border-radius-base !default;
+$--pager-button-color: $--color-white !default;
+$--pager-button-fill: $--color-bg !default;
+$--pager-button-width: 35.5px !default;
+$--pager-button-height: 28px !default;
+$--pager-hover-fill: $--color-primary !default;
+$--pager-hover-color: $--color-white !default;
+$--pager-button-disabled-color: $--color-text-placeholder !default;
+$--pager-button-disabled-fill: $--color-white !default;
+
+/* Popover
+-------------------------- */
+$--popover-fill: $--color-bg !default;
+$--popover-border-color: $--color-bg !default;
+$--popover-color: $--color-white !default;
+$--popover-padding: 1em !default;
+$--popover-border-raidus: $--border-radius-small !default;
+
+/* Tooltip
+-------------------------- */
+$--tooltip-fill: $--color-text-primary !default;
+$--tooltip-color: $--color-white !default;
+$--tooltip-font-size: 12px !default;
+$--tooltip-border-color: $--color-text-primary !default;
+$--tooltip-arrow-size: 6px !default;
+$--tooltip-padding: 10px !default;
+
+/* Tag
+-------------------------- */
+$--tag-padding: 0 10px !default;
+$--tag-fill: rgba($--color-primary, 0.10) !default;
+$--tag-color: $--color-primary !default;
+$--tag-border: rgba($--color-primary, 0.20) !default;
+$--tag-font-size: 12px !default;
+$--tag-border-radius: 4px !default;
+
+$--tag-info-fill: rgba($--color-info, 0.10) !default;
+$--tag-info-border: rgba($--color-info, 0.20) !default;
+$--tag-info-color: $--color-info !default;
+
+$--tag-primary-fill: rgba($--color-primary, 0.10) !default;
+$--tag-primary-border: rgba($--color-primary, 0.20) !default;
+$--tag-primary-color: $--color-primary !default;
+
+$--tag-success-fill: rgba($--color-success, 0.10) !default;
+$--tag-success-border: rgba($--color-success, 0.20) !default;
+$--tag-success-color: $--color-success !default;
+
+$--tag-warning-fill: rgba($--color-warning, 0.10) !default;
+$--tag-warning-border: rgba($--color-warning, 0.20) !default;
+$--tag-warning-color: $--color-warning !default;
+
+$--tag-danger-fill: rgba($--color-danger, 0.10) !default;
+$--tag-danger-border: rgba($--color-danger, 0.20) !default;
+$--tag-danger-color: $--color-danger !default;
+
+/* Tree
+-------------------------- */
+$--tree-node-hover-color: $--background-color-base !default;
+$--tree-text-color: $--color-text-regular !default;
+$--tree-expand-icon-color: $--color-text-placeholder !default;
+
+/* Dropdown
+-------------------------- */
+$--dropdown-menu-box-shadow: $--box-shadow-light !default;
+$--dropdown-menuItem-hover-fill: $--color-primary-light-9 !default;
+$--dropdown-menuItem-hover-color: $--link-color !default;
+
+/* Badge
+-------------------------- */
+$--badge-fill: $--color-danger !default;
+$--badge-radius: 10px !default;
+$--badge-font-size: 12px !default;
+$--badge-padding: 6px !default;
+$--badge-size: 18px !default;
+
+/* Card
+--------------------------*/
+$--card-border-color: $--border-color-lighter !default;
+$--card-border-radius: 4px !default;
+$--card-padding: 20px !default;
+
+/* Slider
+--------------------------*/
+$--slider-main-background-color: $--color-primary !default;
+$--slider-runway-background-color: $--border-color-light !default;
+$--slider-button-hover-color: mix($--color-primary, black, 97%) !default;
+$--slider-stop-background-color: $--color-white !default;
+$--slider-disable-color: $--color-text-placeholder !default;
+
+$--slider-margin: 16px 0 !default;
+$--slider-border-radius: 3px !default;
+$--slider-height: 6px !default;
+$--slider-button-size: 16px !default;
+$--slider-button-wrapper-size: 36px !default;
+$--slider-button-wrapper-offset: -15px !default;
+
+/* Steps
+--------------------------*/
+$--steps-border-color: $--disabled-border-base !default;
+$--steps-border-radius: 4px !default;
+$--steps-padding: 20px !default;
+
+/* Nav
+--------------------------*/
+$--nav-height: 48px !default;
+$--nav-fill: $--color-opacity-bg-dark !default;
+$--nav-item-font-size: $--font-size-base !default;
+$--nav-header-item-color: $--color-primary !default;
+$--nav-item-color: $--color-white !default;
+$--nav-fill: $--color-opacity-bg-dark !default;
+$--nav-item-hover-fill: $--color-primary !default;
+$--nav-item-hover-color: $--color-white !default;
+$--nav-border-line: 3px solid #01FFFF !default;
+
+/* Rate
+--------------------------*/
+$--rate-height: 20px !default;
+$--rate-font-size: $--font-size-base !default;
+$--rate-icon-size: 18px !default;
+$--rate-icon-margin: 6px !default;
+$--rate-icon-color: $--color-text-placeholder !default;
+
+/* DatePicker
+--------------------------*/
+$--datepicker-color: $--color-white !default;
+$--datepicker-outrange-color: $--color-text-placeholder !default;
+$--datepicker-header-color: $--color-white !default;
+$--datepicker-icon-color: $--color-white !default;
+$--datepicker-border-color: $--disabled-border-base !default;
+$--datepicker-inrange-border-color: $--color-white !default;
+$--datepicker-active-color: $--color-primary !default;
+$--datepicker-cell-hover-color: $--color-primary !default;
+
+/* Loading
+--------------------------*/
+$--loading-spinner-size: 42px !default;
+$--loading-fullscreen-spinner-size: 50px !default;
+
+/* Scrollbar
+--------------------------*/
+$--scrollbar-background-color: #FAFAFA !default;
+$--scrollbar-border-color: #E8E7E8 !default;
+$--scrollbar-inner-background-color: #C2C2C2 !default;
+$--scrollbar-inner-hover-background-color: #7D7D7D !default;
+
+/* Carousel
+--------------------------*/
+$--carousel-indicator-font-size: $--font-size-mini !default;
+$--carousel-indicator-color: $--color-white !default;
+$--carousel-indicator-background: $--color-info !default;
+$--carousel-indicator-hover-background: $--color-bg !default;
+$--carousel-indicator-active-background: $--color-bg-dark !default;
+$--carousel-indicator-width: 20px !default;
+$--carousel-indicator-height: 20px !default;
+
+/* Collapse
+--------------------------*/
+$--collapse-border-color: $--border-color-lighter !default;
+$--collapse-header-height: $--height-base !default;
+$--collapse-header-padding: 10px !default;
+$--collapse-header-fill: $--color-opacity-bg !default;
+$--collapse-header-color: $--color-text-shallow !default;
+
+/* Transfer
+--------------------------*/
+$--transfer-border-color: $--border-color-lighter !default;
+$--transfer-border-radius: $--border-radius-base !default;
+$--transfer-panel-width: 200px !default;
+$--transfer-panel-header-height: 40px !default;
+$--transfer-panel-header-background: $--background-color-base !default;
+$--transfer-panel-footer-height: 40px !default;
+$--transfer-panel-body-height: 246px !default;
+$--transfer-item-height: 30px !default;
+$--transfer-item-hover-background: $--color-text-secondary !default;
+$--transfer-filter-height: 32px !default;
+
+/* Game
+--------------------------*/
+$--game-skew: skew(25rad);
+$--game-border-radius: 7px;
+
+/* Hero
+--------------------------*/
+$--hero-background: #333;
+$--hero-border: 3px solid #f6f6f6;
+$--hero-border-radius: $--game-border-radius;
+$--hero-margin-left: 8px;
+
+/* Blood
+--------------------------*/
+$--blood-height: 20px;
+$--blood-border-radius: $--border-radius-small;
+
+/* Badge
+--------------------------*/
+$--badge-height: 18px;
+$--badge-default-color: #F8CC45;
+$--badge-hover-color: #FEFF74;
+$--badge-line-height: 14px;
+$--badge-font-size: .8em;
+$--badge-background: rgba(0, 0, 0, 0.2);
+
+/* Modal
+--------------------------*/
+$--modal-uppper-background: #263249;
+$--modal-lower-background: #1F2734;
+$--modal-text-color: $--color-text-shallow;
+
+/* Label
+--------------------------*/
+$--label-height: $--input-height;
+$--label-background: lighten($--color-opacity-bg-shallow, 10);
+$--label-text-color: $--color-text-shallow;
+
+/* Select
+-------------------------- */
+$--select-border-color-hover: $--color-white !default;
+$--select-input-color: $--color-white !default;
+$--select-input-font-size: 1em !default;
+$--select-option-color: $--color-white !default;
+$--select-option-disabled-color: $--color-text-placeholder !default;
+$--select-option-height: $--input-height;
+$--select-option-hover-background: $--color-primary !default;
+$--select-option-selected: $--color-primary !default;
+$--select-dropdown-background: $--color-bg-dark !default;
+$--select-dropdown-max-height: 274px !default;
+$--select-dropdown-padding: 8px 8px !default;
+
+/* Animation
+--------------------------*/
+@import 'animation.scss';
+
+/* Utils
+--------------------------*/
+@import "utils.scss";
