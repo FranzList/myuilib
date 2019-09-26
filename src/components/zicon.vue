@@ -11,7 +11,7 @@
 <script>
 
     export default {
-        name: "zicon",
+        name: "ZIcon",
 
         props: {
             name: {

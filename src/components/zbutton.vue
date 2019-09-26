@@ -1,11 +1,11 @@
 <template>
-    <button :class="classes">
-        <zicon
+    <button :class="classes" ref="button">
+        <z-icon
             class="z-button-icon"
             color="#fff"
             :is-loading="isLoading"
             :name="iconName">
-        </zicon>
+        </z-icon>
         <span v-if="$slots.default" class="z-button-content">
             <slot></slot>
         </span>
@@ -13,17 +13,17 @@
 </template>
 
 <script>
-    import zicon from '../components/zicon'
+    import ZIcon from '../components/ZIcon'
    
     export default {
-        name: "zbutton",
+        name: "ZButton",
         data() {
             return {
             
             }
         },
-        created() {
-            console.log(this.$slots)
+        mounted() {   
+           this.$refs.button.addEventListener('click',()=>{this.$emit('click')})
         },
         props: {
             iconName: {
@@ -43,21 +43,30 @@
                 type: String,
                 default: 'primary',
                 validator(type) {
-                    return ['primary', 'warning', 'danger', 'info', 'success'].indexOf(type) > -1
+                    return ['primary', 'warning', 'danger', 'info', 
+                    'success','primary-transparent','warning-transparent',
+                    'danger-transparent',
+                    'info-transparent',
+                    'success-transparent',
+                    ].indexOf(type) > -1
                 }
-            }
+            },
+            
         },
         computed: {
             classes() {
                 return [
                     'z-button',
-                    { [`z-button-icon-${this.iconPosition}`]: true, },
-                    `z-button-${this.type}`
+                    { [`z-button-icon-${this.iconPosition}`]: true},
+                    `z-button-${this.type}`,
+                    
                 ]
             }
         },
+       
+       
         components: {
-            zicon
+           ZIcon
         }
     }
 </script>
@@ -68,7 +77,7 @@
         @include hvFlexCenterMx(inline-flex);
         
         padding: $--button-padding;
-        height: $--height-base;
+        
         color: $--button-color;
         border: none;
         outline: none;
@@ -77,9 +86,7 @@
         font-size: $--button-font-size;
         vertical-align: middle;
         transition: all .3s;
-        &:hover {
-            box-shadow: 0px 0px 2px 3px rgba(255, 255, 255, 1);
-        }
+        
         &:active {
             backface-visibility: hidden;
             transform: $--pressed-scale;
@@ -98,13 +105,19 @@
 
         // Types
         &-primary { background: $--button-primary-fill; }
+        &-primary-transparent {>svg{fill:$--button-primary-fill !important }  background: transparent;border: 1px solid $--button-primary-fill;color:$--button-primary-fill  }
         &-success { background: $--button-success-fill; }
+        &-success-transparent { background: transparent;border: 1px solid $--button-success-fill;color:$--button-success-fill;>svg{fill:$--button-success-fill !important }  }
         &-danger { background: $--button-danger-fill; }
+        &-danger-transparent { >svg{fill:$--button-danger-fill !important }background: transparent;border: 1px solid $--button-danger-fill;color:$--button-danger-fill  }
         &-warning { background: $--button-warning-fill; }
+        &-warning-transparent {>svg{fill:$--button-warning-fill !important } background: transparent;border: 1px solid $--button-warning-fill;color:$--button-warning-fill  }
         &-info { background: $--button-info-fill; }
-
+        &-info-transparent {>svg{fill:$--button-info-fill !important } background: transparent;border: 1px solid $--button-info-fill;color:$--button-info-fill  }
         & + & {
             margin-left: 4px;
         }
+        
+       
     }
 </style>
